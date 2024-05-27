@@ -1,11 +1,11 @@
 version: "3"
 
 services:
-  project-base:
+  service-lel:
     image: bitnami/postgresql
     ports:
       - 5432:5432
     environment:
       - POSTGRESQL_USERNAME=docker
       - POSTGRESQL_PASSWORD=docker
-      - POSTGRESQL_DATABASE=projectbase
+      - POSTGRESQL_DATABASE=servicelel
