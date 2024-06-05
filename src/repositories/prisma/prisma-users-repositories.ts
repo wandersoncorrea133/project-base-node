@@ -4,6 +4,7 @@ import { prisma } from '@/lib/prisma'
 
 export class PrismaUsersRepository implements UsersRepository {
   async findById(id: string) {
+    console.log(id)
     const user = await prisma.user.findUnique({
       where: {
         id,

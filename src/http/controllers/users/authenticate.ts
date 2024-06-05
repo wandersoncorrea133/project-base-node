@@ -44,12 +44,14 @@ export async function authenticate(
     return reply
       .setCookie('refreshToken', refreshToken, {
         path: '/',
-        secure: true,
-        sameSite: true,
+        secure: false,
+        sameSite: 'strict',
         httpOnly: true,
       })
       .status(200)
-      .send({ token, user: { ...user, password_hash: undefined } })
+      .send({
+        user: { ...user, password_hash: undefined, token },
+      })
   } catch (err) {
     if (err instanceof InvalidCredentialError) {
       return reply.status(400).send()
